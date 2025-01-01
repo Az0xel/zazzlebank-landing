@@ -8,14 +8,32 @@
 /* General Styles */
 body {
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: url('../assets/images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  /* Ensure proper rendering on mobile */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   font-family: 'Moderniz', Arial, sans-serif;
-  height: 100vh;
-  background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-y: auto;  /* Enable vertical scroll */
+}
+
+.container {
+  /* Add padding to ensure content doesn't touch screen edges */
+  padding: 20px;
+  /* Ensure container takes full height if needed */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Logo Styling */
@@ -44,7 +62,8 @@ body {
 
 .text p {
   font-size: 1.5em;
-  color: rgba(255, 255, 255, 0.7); /* Light grey with some transparency */
+  color: black;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 /* Button Styling */
@@ -133,4 +152,24 @@ body {
 .text a {
   text-decoration: none;
   display: inline-block;
+}
+
+/* Mobile optimization - under 768px */
+@media screen and (max-width: 768px) {
+  body {
+    background-position: center center;
+    /* Optional: adjust background size for mobile if needed */
+    /* background-size: auto 100%; */
+  }
+}
+
+/* Adjust mobile styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 20px; /* Add more vertical padding on mobile */
+  }
+  
+  body {
+    height: auto; /* Allow body to expand based on content */
+  }
 }
