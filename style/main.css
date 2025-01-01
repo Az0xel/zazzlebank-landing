@@ -1,0 +1,136 @@
+/* Import the font */
+@font-face {
+  font-family: 'Moderniz';
+  src: url('../assets/fonts/Moderniz.woff2') format('woff2'),
+       url('../assets/fonts/Moderniz.woff') format('woff'); /* Fallback */
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Moderniz', Arial, sans-serif;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Logo Styling */
+.logo {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  opacity: 0; /* Reset to 0 for animation */
+  animation: fadeInTop 1s ease-in-out 0.7s forwards;
+  /* Remove debug border */
+}
+
+/* Text Styling */
+.text {
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeInLeft 1s ease-in-out 0.55s forwards;
+}
+
+.text h1 {
+  font-size: 3em;
+  margin: 0;
+  color: white;
+}
+
+.text p {
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 0.7); /* Light grey with some transparency */
+}
+
+/* Button Styling */
+.demo-button {
+  font-family: 'Moderniz', Arial, sans-serif;
+  font-size: 1.2em;
+  margin-top: 20px;
+  padding: 12px 30px;
+  border: 2px solid black;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  color: black;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  opacity: 0; /* Start invisible */
+  animation: fadeInBottom 1s ease-in-out 1.2s forwards; /* 1.2s delay, 1s duration */
+}
+
+.demo-button:hover {
+  transform: scale(1.05);
+}
+
+/* Adjust button size for mobile */
+@media (max-width: 768px) {
+  .demo-button {
+    font-size: 1em;
+    padding: 10px 25px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo {
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    margin: 0 5%;
+  }
+
+  .text h1 {
+    font-size: 2em;
+  }
+
+  .text p {
+    font-size: 1.2em;
+  }
+}
+
+/* Animations */
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Add new animation for bottom to top fade */
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add these styles for the link */
+.text a {
+  text-decoration: none;
+  display: inline-block;
+}
